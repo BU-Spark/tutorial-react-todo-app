@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Row, Col, Button, Input, DatePicker, notification } from "antd";
 import { PlusCircleFilled } from "@ant-design/icons";
-import { Moment } from "moment";
 
 import "./styles.less";
 import { ITodo } from "../../todo.model";
@@ -25,18 +24,9 @@ export const AddTodoForm: React.FC<IAddTodoFormProps> = ({ onFormSubmit }) => {
 
   const onChange = (params: any) => {
     const checkHoliday = async () => {
-      const data = await fetch(
-        "https://date.nager.at/api/v3/publicholidays/2022/US"
-      );
-      const holiday_list: Array<any> = await data.json();
-      holiday_list.forEach((holiday) => {
-        if (moment(holiday.date).isSame(params, "day")) {
-          notification.open({
-            message: "Holiday Warning",
-            description: "The selected day is a holiday! Watch out (: ",
-          });
-        }
-      });
+      //This function needs to call the api
+      // and identify if a particular date is a holiday
+      // API DOCS: https://date.nager.at/Api
     };
     checkHoliday();
   };
@@ -57,20 +47,8 @@ export const AddTodoForm: React.FC<IAddTodoFormProps> = ({ onFormSubmit }) => {
             <Input placeholder="What needs to be done?" />
           </Form.Item>
         </Col>
-        <Col xs={12} sm={12} md={8} lg={4} xl={4}>
-          <Form.Item
-            name={"date"}
-            rules={[{ required: true, message: "This field is required" }]}
-          >
-            <DatePicker onChange={onChange} />
-          </Form.Item>
-        </Col>
-        <Col xs={24} sm={24} md={7} lg={4} xl={4}>
-          <Button type="primary" htmlType="submit" block>
-            <PlusCircleFilled />
-            Add todo
-          </Button>
-        </Col>
+        <Col xs={12} sm={12} md={8} lg={4} xl={4}></Col>
+        <Col xs={24} sm={24} md={7} lg={4} xl={4}></Col>
       </Row>
     </Form>
   );

@@ -4,7 +4,7 @@ import Layout, { Content, Header } from "antd/lib/layout/layout";
 import { Card, Col, Row, Typography } from "antd";
 import { AddTodoForm } from "./components/AddTodoForm";
 import { ITodo } from "./todo.model";
-import { TodoList } from "./components/TodoList";
+// import { TodoList } from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState<Array<ITodo>>([]);
@@ -27,40 +27,7 @@ function App() {
     setTodos(new_todos);
   };
   return (
-    <Layout style={{ height: "100vh", width: "100vw" }}>
-      <Header>
-        <Typography.Title level={2} style={{ color: "white", padding: "1rem" }}>
-          Add a To-Do...
-        </Typography.Title>
-      </Header>
-      <Content
-        style={{
-          display: "flex",
-          alignContent: "space-between",
-          flexDirection: "column",
-          width: "100vw",
-          textAlign: "center",
-        }}
-      >
-        <Row style={{ width: "100vw" }}>
-          <Col span={24}>
-            <Card title="Create a new todo">
-              <AddTodoForm onFormSubmit={handleFormSubmit} />
-            </Card>
-          </Col>
-
-          <Col span={24}>
-            <Card title="Todo List">
-              <TodoList
-                todos={todos}
-                onTodoRemoval={handleRemoveTodo}
-                onTodoToggle={handleToggleTodoStatus}
-              />
-            </Card>
-          </Col>
-        </Row>
-      </Content>
-    </Layout>
+    <Layout style={{ height: "100vh", width: "100vw" }}>Hello World</Layout>
   );
 }
 

@@ -9,27 +9,13 @@ interface ITodoListProps {
   onTodoRemoval: (todo: ITodo) => void;
   onTodoToggle: (todo: ITodo) => void;
 }
+// You need to write this component!
+// It should render a list of todos 
+// It also needs to handle individual actions on a particular todo
 
-export const TodoList: React.FC<ITodoListProps> = ({
-  todos,
-  onTodoRemoval,
-  onTodoToggle,
-}) => (
-  <List
-    locale={{
-      emptyText: "There's nothing to do :(",
-    }}
-    dataSource={todos}
-    renderItem={(todo) => (
-      <TodoItem
-        todo={todo}
-        onTodoToggle={onTodoToggle}
-        onTodoRemoval={onTodoRemoval}
-      />
-    )}
-    pagination={{
-      position: "bottom",
-      pageSize: 10,
-    }}
-  />
-);
+// export const TodoList: React.FC<ITodoListProps> = ({
+//   todos,
+//   onTodoRemoval,
+//   onTodoToggle,
+// }) => (
+// );

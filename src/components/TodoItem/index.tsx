@@ -50,18 +50,6 @@ export const TodoItem: React.FC<ITodoItemProps> = ({
       ]}
       className="list-item"
       key={todo.id}
-    >
-      <div className="todo-item">
-        <Tag color={todo.completed ? "cyan" : "red"} className="todo-tag">
-          {todo.name}
-        </Tag>
-        <DatePicker
-          className="todo-date"
-          disabled={true}
-          inputReadOnly={true}
-          value={todo.date}
-        />
-      </div>
-    </List.Item>
+    ></List.Item>
   );
 };
